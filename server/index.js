@@ -9,10 +9,11 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = Number(process.env.API_PORT || 8787);
+const PORT = Number(process.env.PORT || process.env.API_PORT || 8787);
 const ROOT = path.resolve(__dirname, '..');
-const DATA_DIR = path.join(__dirname, 'data');
-const UPLOAD_DIR = path.join(ROOT, 'public', 'uploads');
+const STORAGE_DIR = path.resolve(process.env.STORAGE_DIR || path.join(__dirname, 'data'));
+const DATA_DIR = STORAGE_DIR;
+const UPLOAD_DIR = path.join(STORAGE_DIR, 'uploads');
 const DB_FILE = path.join(DATA_DIR, 'content.json');
 fs.mkdirSync(DATA_DIR, { recursive: true });
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
@@ -107,6 +108,14 @@ function cleanProject(body) {
     screenshots:Array.isArray(body.screenshots)?body.screenshots.map(x=>String(x).slice(0,500)).slice(0,12):[],
     demoUrl:String(body.demoUrl||'').slice(0,500), repoUrl:String(body.repoUrl||'').slice(0,500), published:body.published!==false
   };
+}
+if (process.env.NODE_ENV === 'production') {
+  const DIST_DIR = path.join(ROOT, 'dist');
+  app.use(express.static(DIST_DIR));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) return next();
+    res.sendFile(path.join(DIST_DIR, 'index.html'), error => { if (error) next(error); });
+  });
 }
 app.use((err,_req,res,_next) => { res.status(400).json({error:err.message || 'Upload failed'}); });
 app.listen(PORT, () => console.log(`Portfolio API running at http://localhost:${PORT}`));

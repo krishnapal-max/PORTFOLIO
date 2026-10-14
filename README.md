@@ -12,12 +12,19 @@
 
 The `dev` command runs both the Vite frontend and the Express API. The API runs on port 8787 and the Vite dev server proxies `/api` and `/uploads` to it.
 
+## Deploy on Render
+1. Push this repository to GitHub and connect `krishnapal-max/PORTFOLIO` to Render as a Blueprint.
+2. Review the `render.yaml` service and disk plan before applying it. This full-stack setup uses a paid web-service plan and a persistent disk; confirm Render's current pricing before creating the service.
+3. Render generates `ADMIN_PASSWORD` for the deployed service. Set or rotate it in the Render dashboard, then open `/admin` on your deployed site to manage projects and About content.
+
+The Express server serves the built frontend and API from one service. Set `STORAGE_DIR` to a persistent disk mount so project/About edits and uploaded images survive deployments and restarts. The Render blueprint mounts a 1 GB disk at `/var/data`.
+
 ## Admin
 Open `/admin`, enter the password from `.env`, then use:
 - **Projects** to add/edit/delete projects, upload a cover image, and publish/draft projects.
 - **Edit About** to update the About heading, biography, skills and image.
 
-Project/About content is persisted in `server/data/content.json`; uploaded images are stored in `public/uploads`. Back up both folders before moving the project. This local file-based storage is intended for a single-host deployment; use persistent disk storage on hosting.
+Locally, project/About content is persisted in `server/data/content.json` and uploaded images are stored in `server/data/uploads`. Back up this folder before moving the project. On Render, both use the persistent storage directory configured above.
 
 ## Implemented interactions
 - Cursor-controlled circular reveal: masked generated character is the default; the final unmasked generated frame is revealed under the cursor.
