@@ -1,0 +1,46 @@
+{
+  "maskFrames": [
+    "/assets/mask-frames/frame_01.jpg",
+    "/assets/mask-frames/frame_02.jpg",
+    "/assets/mask-frames/frame_03.jpg",
+    "/assets/mask-frames/frame_04.jpg",
+    "/assets/mask-frames/frame_05.jpg",
+    "/assets/mask-frames/frame_06.jpg",
+    "/assets/mask-frames/frame_07.jpg",
+    "/assets/mask-frames/frame_08.jpg",
+    "/assets/mask-frames/frame_09.jpg",
+    "/assets/mask-frames/frame_10.jpg",
+    "/assets/mask-frames/frame_11.jpg",
+    "/assets/mask-frames/frame_12.jpg",
+    "/assets/mask-frames/frame_13.jpg",
+    "/assets/mask-frames/frame_14.jpg",
+    "/assets/mask-frames/frame_15.jpg",
+    "/assets/mask-frames/frame_16.jpg",
+    "/assets/mask-frames/frame_17.jpg",
+    "/assets/mask-frames/frame_18.jpg",
+    "/assets/mask-frames/frame_19.jpg",
+    "/assets/mask-frames/frame_20.jpg",
+    "/assets/mask-frames/frame_21.jpg",
+    "/assets/mask-frames/frame_22.jpg",
+    "/assets/mask-frames/frame_23.jpg",
+    "/assets/mask-frames/frame_24.jpg"
+  ],
+  "projectCovers": [
+    "/assets/project-covers/panelify.jpg",
+    "/assets/project-covers/vehicle-security.jpg",
+    "/assets/project-covers/smart-gas-detector.jpg",
+    "/assets/project-covers/3d-interactive-portfolio.jpg",
+    "/assets/project-covers/drone-project.jpg",
+    "/assets/project-covers/water-pump-control.jpg",
+    "/assets/project-covers/fingerprint-lock.jpg",
+    "/assets/project-covers/iot-embedded.jpg"
+  ],
+  "gameCovers": [
+    "/assets/game-covers/3d-car-racing.jpg",
+    "/assets/game-covers/3d-subway-runner.jpg",
+    "/assets/game-covers/3d-tic-tac-toe.jpg",
+    "/assets/game-covers/3d-chess.jpg",
+    "/assets/game-covers/3d-space-shooter.jpg",
+    "/assets/game-covers/3d-physics-playground.jpg"
+  ]
+}
